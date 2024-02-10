@@ -2,6 +2,7 @@ package com.tool.RecruitXpert.Entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -12,7 +13,8 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Table
+@Table(name = "resume")
+@Builder
 public class ResumeEntity {
 
     @Id
@@ -25,7 +27,8 @@ public class ResumeEntity {
     // UI se aa jayega wo as DTO in post req of resume
     String docType;
 
-    String resumeImg;
+   String resumeName;
+
 
     String comment;
 
@@ -34,6 +37,6 @@ public class ResumeEntity {
     byte[] resume;
 
     @ManyToOne
-    @JoinColumn
-    private User userToResume;
+    @JoinColumn(name = "userid")
+    private User user;
 }

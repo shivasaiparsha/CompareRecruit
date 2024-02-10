@@ -28,7 +28,7 @@ public class UserController {
 
     // delete user by id
     @DeleteMapping("/delete")
-    public ResponseEntity deleteUser(@RequestParam Long id) {
+    public ResponseEntity deleteUser(@RequestParam int id) {
         String message = userService.deleteUser(id);
         return new ResponseEntity(message, HttpStatus.ACCEPTED);
     }

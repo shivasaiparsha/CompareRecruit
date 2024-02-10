@@ -67,7 +67,7 @@ public class User {
 //    @JoinColumn
 //     Recruiter recruiter;
 
-    @OneToMany(mappedBy = "userToResume", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
      List<ResumeEntity> resumeList = new ArrayList<>();
 
     // one user - many jobs

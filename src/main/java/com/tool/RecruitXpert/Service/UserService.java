@@ -22,7 +22,7 @@ public class UserService {
         return UserTransformer.UserToUserResponse(savedUser);
     }
 
-    public String deleteUser(Long id) {
+    public String deleteUser(int id) {
             Optional<User> optionalUser = userRepository.findById(id);
             if(!optionalUser.isPresent()){
                 throw new UserNotFoundException("User not Found");

@@ -28,14 +28,18 @@ public class AdminService {
 
     public String updateAdmin(Long id,AdminRequest adminRequest) {
 
-        //Optional<Admin> optionalAdmin = adminRepository.findById(id);
+//        //Optional<Admin> optionalAdmin = adminRepository.findById(id);
+//
+//       // if(!optionalAdmin.isPresent()) throw new AdminNotFoundException("Admin not Found");
+//
+//        Admin existingAdmin = adminRepository.findById(id).orElseThrow(() -> new RuntimeException("Admin not found"));
+//        //Admin admin = adminRepository.findById(id).get();
+//        //Admin updatedAdmin = modelMapper.map(adminRequest,Admin.class);
+//         //adminRepository.updateByAdmin(updatedAdmin)
+//         ;
+           if(!adminRepository.existsById(id))  throw new AdminNotFoundException("Admin not found with AdminId "+id);
+           Admin admin=adminRepository.findById(id).get();
 
-       // if(!optionalAdmin.isPresent()) throw new AdminNotFoundException("Admin not Found");
-
-        Admin existingAdmin = adminRepository.findById(id).orElseThrow(() -> new RuntimeException("Admin not found"));
-        //Admin admin = adminRepository.findById(id).get();
-        //Admin updatedAdmin = modelMapper.map(adminRequest,Admin.class);
-         //adminRepository.updateByAdmin(updatedAdmin);
         return "Successfully Updated !!";
     }
 
